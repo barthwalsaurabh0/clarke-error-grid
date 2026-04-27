@@ -1,17 +1,17 @@
 Metadata-Version: 2.4
 Name: clarke-error-grid
-Version: 0.1.0
-Summary: Clarke Error Grid analysis for glucose prediction models
+Version: 0.1.4
+Summary: Clarke Error Grid analysis and plotly plot for glucose prediction models
 Author: Saurabh Barthwal
 License: MIT
-Project-URL: Homepage, https://github.com/yourusername/clarke-error-grid
+Project-URL: Homepage, https://github.com/barthwalsaurabh0/clarke-error-grid
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Intended Audience :: Science/Research
 Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
-Requires-Dist: matplotlib>=3.5
+Requires-Dist: plotly>=5.0
 
 # Clarke Error Grid
 
@@ -30,14 +30,15 @@ import clarke_error_grid as ceg
 ref = [100, 120, 180]
 pred = [110, 130, 160]
 
+# Ploting
 plt = ceg.plot(ref, pred)
 plt.show()
 
+# Samples percentage per region
 zones = ceg.zone(ref, pred)
-
 print(zones)
 ```
 
 # Screenshots
 
-![Plot](plot.png)
+![Plot](https://raw.githubusercontent.com/barthwalsaurabh0/clarke-error-grid/refs/heads/main/plot.png)

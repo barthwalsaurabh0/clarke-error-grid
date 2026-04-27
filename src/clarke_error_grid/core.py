@@ -131,14 +131,20 @@ def plot(ref_values, pred_values, title_string="Clarke Error Grid"):
     return fig
 
 
-def zone(ref_values, pred_values):
+def zone(ref_values, pred_values, percentage=True):
     """
     Classify points into Clarke Error Grid zones.
 
     Returns
     -------
-    list
-        Counts for zones [A, B, C, D, E]
+    list of float or int
+        A list containing results for the Clarke Error Grid zones in the
+        following order:
+
+        [A, B, C, D, E]
+
+        - If percentage=True: values represent percentage of total samples.
+        - If percentage=False: values represent number of samples.
     """
     
     zone = [0] * 5
@@ -156,4 +162,10 @@ def zone(ref_values, pred_values):
         else:
             zone[1] += 1    #Zone B
     
+    if percentage:
+        total_points = sum(zone)
+        for i in range(len(zone)):
+            zone[i] = round((zone[i]/total_points)*100, 2)
+        
+
     return zone
